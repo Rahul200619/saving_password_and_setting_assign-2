@@ -20,4 +20,18 @@ document.addEventListener('DOMContentLoaded', function() {
   // 4. Display the count on the webpage
 
   // your code here
+  let count = getCookie('count');
+
+  // 2️⃣ If cookie doesn't exist, initialize it to 1
+  if (!count) {
+    count = 1;
+  } else {
+    count = parseInt(count) + 1; // Convert to number and increment
+  }
+
+  // 3️⃣ Update the cookie with the new count
+  setCookie('count', count, 30); // Cookie expires in 30 days
+
+  // 4️⃣ Display the count on the webpage
+  document.getElementById('count').textContent = count;
 });
